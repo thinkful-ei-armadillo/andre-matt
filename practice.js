@@ -120,18 +120,18 @@ movements.forEach((step) => { console.log(step[0] + step[1]); });
 
 
 // reduce
-let words = 'noggin oreo the moon time tele steed his tent apollo her lives though shoo tofu budapest';
-words = words.split(' ');
-
-let decoded = words.reduce((acc, el, index, src) => {
+function decodeWord(acc, el) {
   if(el.length === 3) {
     acc += ' ';
   } else {
-    //acc += el[this.length - 1].toUpperCase();
-  console.log(el[src.length - 1]);
-}
+    acc += el[el.length - 1].toUpperCase();
+  }
 
   return acc;
-});
+}
+
+let words = 'noggin oreo the moon time tele steed his tent apollo her lives though shoo tofu budapest';
+words = words.split(' ');
+let decoded = words.reduce(decodeWord, '');
 
 console.log(decoded);
