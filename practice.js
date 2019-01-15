@@ -80,3 +80,22 @@ const filteredNames = filter(myNames, function(name) {
 // => ['Rich', 'Ray']
 
 
+
+function hazardWarningCreator(typeOfWarning) {
+  let warningCounter = 0;
+
+  return function(location) {
+    warningCounter++;
+    console.log(`DANGER! There is a ${typeOfWarning} hazard at ${location}!`);
+    console.log(`The ${typeOfWarning} hazard alert has triggered ${warningCounter} time${(warningCounter >= 2 || warningCounter === 0) ? '(s)':''} today!`);
+  }
+}
+
+const rocksWarning = hazardWarningCreator('Rocks on the road!');
+const tornadoWarning = hazardWarningCreator('Tornado inbound!!');
+const floodWarning = hazardWarningCreator('Flash flood warning!');
+
+rocksWarning('Atlanta, GA');
+rocksWarning('Atlanta, GA');
+tornadoWarning('Oklahoma City, OK');
+floodWarning('Los Angeles, CA');
