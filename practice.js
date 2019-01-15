@@ -81,6 +81,7 @@ const filteredNames = filter(myNames, function(name) {
 
 
 
+// functions as return values
 function hazardWarningCreator(typeOfWarning) {
   let warningCounter = 0;
 
@@ -99,3 +100,38 @@ rocksWarning('Atlanta, GA');
 rocksWarning('Atlanta, GA');
 tornadoWarning('Oklahoma City, OK');
 floodWarning('Los Angeles, CA');
+
+
+// foreach, filter, and map
+let movements = [[0, 0], [0, 5], [-1, -3], [-3, 1], [2, -4], [3, 2]];
+
+movements = movements.filter(function(i) {
+  if(i[0] >= 0 && i[1] >= 0) {
+    return i;
+  }
+});
+
+let totalSteps = movements.map(function(step) { return step[0] + step[1]; });
+
+console.log('Steps: ', totalSteps);
+console.log('Movements: ', movements);
+
+movements.forEach((step) => { console.log(step[0] + step[1]); });
+
+
+// reduce
+let words = 'noggin oreo the moon time tele steed his tent apollo her lives though shoo tofu budapest';
+words = words.split(' ');
+
+let decoded = words.reduce((acc, el, index, src) => {
+  if(el.length === 3) {
+    acc += ' ';
+  } else {
+    //acc += el[this.length - 1].toUpperCase();
+  console.log(el[src.length - 1]);
+}
+
+  return acc;
+});
+
+console.log(decoded);
